@@ -20,7 +20,7 @@ class KendaraanController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.kendaraan.create');
     }
 
     /**
@@ -28,7 +28,11 @@ class KendaraanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kendaraan = new Kendaraan();
+        $kendaraan->nama_kendaraan = 'Toyota';
+        $kendaraan->warna_kendaraan = 'Merah';
+        $kendaraan->plat_kendaraan = 'L 140402 SL';
+        $kendaraan->save();
     }
 
     /**
