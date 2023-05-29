@@ -44,18 +44,20 @@
             
             @if (Auth::user()->roles[0]->id === 1)
             <!-- Menu khusus Admin -->
-            <li class="nav-item {{ (request()->is('blog*post')) || (request()->is('blog*category')) ? 'active' : '' }}">
+            <li class="nav-item {{ (request()->is('users*')) ? 'active' : '' }}">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Users</span>
                 </a>
-                <div id="collapseUtilities" class="collapse {{ (request()->is('blog*post')) || (request()->is('blog*category')) ? 'show' : '' }}" aria-labelledby="headingUtilities"
+                <div id="collapseUtilities" class="collapse {{ (request()->is('users*')) ? 'show' : '' }}" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Blog features:</h6>
-                        <a class="collapse-item {{ (request()->is('blog*post')) ? 'active' : '' }}" href="">Admin</a>
-                        <a class="collapse-item {{ (request()->is('blog*category')) ? 'active' : '' }}" href="">Sopir</a>
+                        <h6 class="collapse-header">features:</h6>
+                        <a class="collapse-item {{ (request()->is('users*post')) ? 'active' : '' }}" href="">Admin</a>
+                        {{-- @if (Auth::user()->roles === 1) --}}
+                        <a class="collapse-item {{ (request()->is('users*sopir*')) ? 'active' : '' }}" href="{{ route('sopir.create') }}">Sopir</a>
+                        {{-- @endif --}}
                     </div>
                 </div>
             </li>
