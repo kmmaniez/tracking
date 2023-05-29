@@ -14,12 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(5)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
         $permission_lists = [
             'tambah data',
             'edit data',
@@ -42,14 +37,22 @@ class DatabaseSeeder extends Seeder
             'edit data'
         ]);
 
-        // create owner
+
+        // create admin
         $user = \App\Models\User::factory()->create([
             'name'  => 'Admin Program',
             'email' => 'admin@gmail.com',
         ]);
         $user->assignRole($role1);
 
-        // create admin
+        // create owner
+        $user = \App\Models\User::factory()->create([
+            'name'  => 'Owner Program',
+            'email' => 'owner@gmail.com',
+        ]);
+        $user->assignRole($role1);
+
+        // create sopir
         $user = \App\Models\User::factory()->create([
             'name'  => 'Supir Program',
             'email' => 'supir@gmail.com',
