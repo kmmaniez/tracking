@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SopirController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,10 +31,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/kendaraan', function () {
-    return view('admin.kendaraan.create');
-});
 
+Route::resource('kendaraan', KendaraanController::class);
+
+Route::prefix('users')->group(function () {
+    Route::resource('sopir', SopirController::class)->except('show');
+});
 
 Route::controller(LaporanController::class)->prefix('laporan')->group(function(){
 
