@@ -20,7 +20,7 @@ class SopirController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.sopir.create');
     }
 
     /**
@@ -28,7 +28,11 @@ class SopirController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Sopir::create([
+            'nama' => 'Ucup',
+            'telepon' => '081231231444',
+            'merkhp' => 'Oppo'
+        ]);
     }
 
     /**
