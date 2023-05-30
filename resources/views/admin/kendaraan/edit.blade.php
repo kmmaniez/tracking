@@ -14,28 +14,20 @@
                     <h6 class="m-0 font-weight-bold text-primary">Tambah {{ $title_page ?? 'Title' }}</h6>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('kendaraan.store') }}" method="post">
+                    <form action="{{ route('kendaraan.update', $kendaraan->id) }}" method="post">
                         @csrf
+                        @method('PUT')
                         <div class="form-group">
                             <label for="nama">Nama Kendaraan</label>
-                            <input type="text" class="form-control" name="nama" id="nama">
-                            @error('nama')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
+                            <input type="text" class="form-control" name="nama" value="{{ old('nama', $kendaraan->nama_kendaraan) }}" id="nama">
                         </div>
                         <div class="form-group">
                             <label for="plat">Nomor PLAT</label>
-                            <input type="text" class="form-control" name="plat" id="plat">
-                            @error('plat')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
+                            <input type="text" class="form-control" name="plat" value="{{ old('plat', $kendaraan->plat_kendaraan) }}" id="plat">
                         </div>
                         <div class="form-group">
                             <label for="warna">Warna Kendaraan</label>
-                            <input type="text" class="form-control" name="warna" id="warna">
-                            @error('warna')
-                                <small class="text-danger">{{ $message }}</small>
-                            @enderror
+                            <input type="text" class="form-control" name="warna" value="{{ old('warna', $kendaraan->warna_kendaraan) }}" id="warna">
                         </div>
                         <button class="btn btn-primary">Simpan</button>
                         <a href="{{ route('kendaraan.index') }}" class="btn btn-secondary">Kembali</a>
