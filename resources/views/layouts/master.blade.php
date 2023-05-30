@@ -73,7 +73,7 @@
     {{-- <script src="{{ url('vendor/sweetalert/sweetalert.all.js') }}"></script> --}}
     
     <!-- Custom scripts -->
-    <script src="{{ url('js/main.js') }}"></script>
+    {{-- <script src="{{ url('js/main.js') }}"></script> --}}
 
     <!-- Page level plugins -->
     <script src="{{ url('sb-admin/vendor/datatables/jquery.dataTables.min.js') }}"></script>
