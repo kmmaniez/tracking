@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('pakets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user')->references('id')->on('users')->cascadeOnDelete();
+            // $table->foreignId('id_user')->references('id')->on('users')->cascadeOnDelete();
+            $table->string('nama_customer');
             $table->string('telepon');
             $table->string('alamat');
             $table->string('tujuan');
