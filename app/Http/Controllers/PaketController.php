@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Paket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PaketController extends Controller
 {
@@ -12,7 +13,9 @@ class PaketController extends Controller
      */
     public function index()
     {
-        //
+        $title_page = 'Paket';
+        $paket = Paket::all();
+        return view('admin.paket.index', compact('paket','title_page'));
     }
 
     /**
@@ -20,7 +23,8 @@ class PaketController extends Controller
      */
     public function create()
     {
-        //
+        $title_page = 'Paket';
+        return view('admin.paket.create', compact('title_page'));
     }
 
     /**
@@ -28,7 +32,26 @@ class PaketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'nama' => 'required',
+            'telepon' => 'required',
+            'alamat' => 'required',
+            'tujuan' => 'required',
+            'jenispaket' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $kendaraan = new Paket();
+        $kendaraan->nama_customer = $request->nama;
+        $kendaraan->telepon = $request->telepon;
+        $kendaraan->alamat = $request->alamat;
+        $kendaraan->tujuan = $request->tujuan;
+        $kendaraan->jenis_paket = $request->jenispaket;
+        $kendaraan->save();
+
+        return redirect(route('paket.index'));
     }
 
     /**
@@ -44,7 +67,8 @@ class PaketController extends Controller
      */
     public function edit(Paket $paket)
     {
-        //
+        $title_page = 'Paket';
+        return view('admin.paket.edit', compact('title_page', 'paket'));
     }
 
     /**
@@ -52,7 +76,14 @@ class PaketController extends Controller
      */
     public function update(Request $request, Paket $paket)
     {
-        //
+        Paket::where('id', $paket->id)->update([
+            'nama_customer' => $request->nama,
+            'telepon' => $request->telepon,
+            'alamat' => $request->alamat,
+            'tujuan' => $request->tujuan,
+            'jenis_paket' => $request->jenispaket,
+        ]);
+        return redirect(route('paket.index'));
     }
 
     /**
@@ -60,6 +91,7 @@ class PaketController extends Controller
      */
     public function destroy(Paket $paket)
     {
-        //
+        $paket->delete();
+        return redirect(route('paket.index'));
     }
 }
