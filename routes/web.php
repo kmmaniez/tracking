@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\PaketController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SopirController;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,7 @@ Route::middleware('auth')->group(function () {
 
 
 Route::resource('kendaraan', KendaraanController::class);
+Route::resource('paket', PaketController::class);
 
 Route::prefix('users')->group(function () {
     Route::resource('sopir', SopirController::class)->except('show');
