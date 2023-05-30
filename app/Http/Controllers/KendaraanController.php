@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kendaraan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class KendaraanController extends Controller
 {
@@ -12,7 +13,8 @@ class KendaraanController extends Controller
      */
     public function index()
     {
-        //
+        $kendaraan = Kendaraan::all();
+        return view('admin.kendaraan.index', compact('kendaraan'));
     }
 
     /**
@@ -28,11 +30,22 @@ class KendaraanController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(),[
+            'nama' => 'required',
+            'plat' => 'required',
+            'warna' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         $kendaraan = new Kendaraan();
-        $kendaraan->nama_kendaraan = 'Toyota';
-        $kendaraan->warna_kendaraan = 'Merah';
-        $kendaraan->plat_kendaraan = 'L 140402 SL';
+        $kendaraan->nama_kendaraan = $request->nama;
+        $kendaraan->plat_kendaraan = $request->plat;
+        $kendaraan->warna_kendaraan = $request->warna;
         $kendaraan->save();
+
+        return redirect(route('kendaraan.index'));
     }
 
     /**
@@ -48,7 +61,7 @@ class KendaraanController extends Controller
      */
     public function edit(Kendaraan $kendaraan)
     {
-        //
+        return view('admin.kendaraan.edit', compact('kendaraan'));
     }
 
     /**
@@ -56,7 +69,12 @@ class KendaraanController extends Controller
      */
     public function update(Request $request, Kendaraan $kendaraan)
     {
-        //
+        Kendaraan::where('id', $kendaraan->id)->update([
+            'nama_kendaraan' => $request->nama ,
+            'plat_kendaraan' => $request->plat,
+            'warna_kendaraan' => $request->warna
+        ]);
+        return redirect(route('kendaraan.index'));
     }
 
     /**
@@ -64,6 +82,7 @@ class KendaraanController extends Controller
      */
     public function destroy(Kendaraan $kendaraan)
     {
-        //
+        $kendaraan->delete();
+        return redirect(route('kendaraan.index'));
     }
 }
