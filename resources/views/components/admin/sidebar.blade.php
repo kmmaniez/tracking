@@ -29,6 +29,12 @@
                     <i class="fas fa-fw fa-list"></i>
                 <span>Kendaraan</span></a>
             </li>
+            
+            <li class="nav-item {{ (request()->is('paket*')) ? 'active' : '' }}">
+                <a class="nav-link" href="/paket">
+                    <i class="fas fa-fw fa-list"></i>
+                <span>Paket</span></a>
+            </li>
 
             <li class="nav-item {{ (request()->is('laporan*')) ? 'active' : '' }}">
                 <a class="nav-link" href="/laporan/tracking">
