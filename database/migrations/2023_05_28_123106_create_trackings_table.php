@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('trackings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_sopir')->references('id')->on('sopirs')->cascadeOnDelete();
-            $table->foreignId('id_customer')->references('id')->on('users')->cascadeOnDelete();
+            // $table->foreignId('id_customer')->references('id')->on('users')->cascadeOnDelete();
             $table->string('kota');
             $table->string('jenis_paket');
             $table->string('total_paket');
