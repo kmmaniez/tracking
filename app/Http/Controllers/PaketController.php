@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Paket;
+use App\Models\Sopir;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -93,5 +94,20 @@ class PaketController extends Controller
     {
         $paket->delete();
         return redirect(route('paket.index'));
+    }
+
+    public function viewPaketSopir(Paket $paket)
+    {
+        $title_page = 'Paket ke Sopir';
+        $listsopir = Sopir::all();
+        return view('admin.paket.kirimsopir', compact('title_page', 'paket','listsopir'));
+    }
+
+    public function storePaketSopir(Request $request, Paket $paket)
+    {
+        dd($request->all());
+        $title_page = 'Paket ke Sopir';
+        $listsopir = Sopir::all();
+        return view('admin.paket.kirimsopir', compact('title_page', 'paket','listsopir'));
     }
 }
