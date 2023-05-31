@@ -32,9 +32,25 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
+Route::get('/laporan',[LaporanController::class]);
+Route::get('/tracking', function () {
+    return view('admin.tracking.create');
+});
 Route::resource('kendaraan', KendaraanController::class);
-Route::resource('paket', PaketController::class);
+// Route::resource('paket', PaketController::class)->except('show');
+
+Route::controller(PaketController::class)->prefix('paket')->group(function(){
+    Route::get('/', 'index')->name('paket.index');
+    Route::get('/create', 'create')->name('paket.create');
+    Route::post('/create', 'store')->name('paket.store');
+
+    Route::get('/{paket}/edit', 'edit')->name('paket.edit');
+    Route::put('/{paket}', 'update')->name('paket.update');
+    Route::delete('/{paket}', 'destroy')->name('paket.destroy');
+
+    Route::get('/{paket}/kirimsopir', 'viewPaketSopir')->name('paket.sopir');
+    Route::post('/{paket}/kirimsopir', 'storePaketSopir')->name('paket.simpansopir');
+});
 
 Route::prefix('users')->group(function () {
     Route::resource('sopir', SopirController::class)->except('show');
