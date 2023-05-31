@@ -26,29 +26,35 @@
             
             <li class="nav-item {{ (request()->is('kendaraan*')) ? 'active' : '' }}">
                 <a class="nav-link" href="/kendaraan">
-                    <i class="fas fa-fw fa-list"></i>
+                    <i class="fas fa-fw fa-truck"></i>
                 <span>Kendaraan</span></a>
             </li>
             
             <li class="nav-item {{ (request()->is('paket*')) ? 'active' : '' }}">
                 <a class="nav-link" href="/paket">
-                    <i class="fas fa-fw fa-list"></i>
+                    <i class="fas fa-fw fa-gift"></i>
                 <span>Paket</span></a>
             </li>
 
-            <li class="nav-item {{ (request()->is('laporan*')) ? 'active' : '' }}">
-                <a class="nav-link" href="/laporan/tracking">
+            {{-- <li class="nav-item {{ (request()->is('tracking*')) ? 'active' : '' }}">
+                <a class="nav-link" href="/tracking">
                     <i class="fas fa-fw fa-list"></i>
                 <span>Tracking</span></a>
-            </li>
+            </li> --}}
 
-            <li class="nav-item {{ (request()->is('products*')) ? 'active' : '' }}">
+            <li class="nav-item {{ (request()->is('laporan*')) ? 'active' : '' }}">
                 <a class="nav-link" href="/laporan">
-                    <i class="fas fa-fw fa-list"></i>
+                    <i class="fas fa-fw fa-book"></i>
                 <span>Laporan</span></a>
             </li>
+
+            <li class="nav-item {{ (request()->is('users*sopir')) ? 'active' : '' }}">
+                <a class="nav-link" href="/users/sopir">
+                    <i class="fas fa-fw fa-user"></i>
+                <span>Sopir</span></a>
+            </li>
             
-            @if (Auth::user()->roles[0]->id === 1)
+            {{-- @if (Auth::user()->roles[0]->id === 1)
             <!-- Menu khusus Admin -->
             <li class="nav-item {{ (request()->is('users*')) ? 'active' : '' }}">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUtilities"
@@ -61,13 +67,13 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">features:</h6>
                         <a class="collapse-item {{ (request()->is('users*post')) ? 'active' : '' }}" href="">Admin</a>
-                        {{-- @if (Auth::user()->roles === 1) --}}
+                        @if (Auth::user()->roles === 1)
                         <a class="collapse-item {{ (request()->is('users*sopir*')) ? 'active' : '' }}" href="{{ route('sopir.create') }}">Sopir</a>
-                        {{-- @endif --}}
+                        @endif
                     </div>
                 </div>
             </li>
-            @endif
+            @endif --}}
             
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
