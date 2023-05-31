@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Sopir;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class SopirController extends Controller
 {
@@ -12,7 +13,9 @@ class SopirController extends Controller
      */
     public function index()
     {
-        //
+        $sopir = Sopir::all();
+        $title_page = 'Sopir';
+        return view('admin.sopir.index', compact('sopir','title_page'));
     }
 
     /**
@@ -20,7 +23,8 @@ class SopirController extends Controller
      */
     public function create()
     {
-        return view('admin.sopir.create');
+        $title_page = 'Tambah Sopir';
+        return view('admin.sopir.create', compact('title_page'));
     }
 
     /**
@@ -29,10 +33,11 @@ class SopirController extends Controller
     public function store(Request $request)
     {
         Sopir::create([
-            'nama' => 'Ucup',
-            'telepon' => '081231231444',
-            'merkhp' => 'Oppo'
+            'nama' => $request->nama,
+            'telepon' => $request->telepon,
+            'merkhp' => $request->merkhp
         ]);
+        return Redirect::to(route('sopir.index'));
     }
 
     /**
@@ -48,7 +53,8 @@ class SopirController extends Controller
      */
     public function edit(Sopir $sopir)
     {
-        //
+        $title_page = 'Edit Sopir';
+        return view('admin.sopir.edit', compact('sopir', 'title_page'));
     }
 
     /**
@@ -56,7 +62,12 @@ class SopirController extends Controller
      */
     public function update(Request $request, Sopir $sopir)
     {
-        //
+        Sopir::where('id', $sopir->id)->update([
+            'nama' => $request->nama,
+            'telepon' => $request->telepon,
+            'merkhp' => $request->merkhp
+        ]);
+        return Redirect::to(route('sopir.index'));
     }
 
     /**
@@ -64,6 +75,7 @@ class SopirController extends Controller
      */
     public function destroy(Sopir $sopir)
     {
-        //
+        $sopir->delete();
+        return Redirect::to(route('sopir.index'));
     }
 }
