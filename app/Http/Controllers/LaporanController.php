@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 
 class LaporanController extends Controller
 {
-    public function LaporanSupir()
-    {
+    public function __invoke(){
+        return view('admin.laporan.index');
+    }
+    
+    public function laporanSopir(){
         return view('admin.sopir.create');
     }
 }
