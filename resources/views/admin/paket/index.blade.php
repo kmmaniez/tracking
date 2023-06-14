@@ -22,7 +22,7 @@
                                 <th>Nama Customer</th>
                                 <th>Telepon Customer</th>
                                 <th>Alamat Customer</th>
-                                <th>Tujuan Customer</th>
+                                <th>Kota Tujuan</th>
                                 <th>Jenis Paket</th>
                                 <th>Action</th>
                             </tr>
