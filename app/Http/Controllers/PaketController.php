@@ -6,6 +6,7 @@ use App\Models\Paket;
 use App\Models\Sopir;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 class PaketController extends Controller
 {
@@ -109,5 +110,11 @@ class PaketController extends Controller
         $title_page = 'Paket ke Sopir';
         $listsopir = Sopir::all();
         return view('admin.paket.kirimsopir', compact('title_page', 'paket','listsopir'));
+    }
+
+    public function viewLaporan()
+    {
+        $pdf = PDF::loadView('admin.laporan.cetak.laporan');
+        return $pdf->download('invoice.pdf');
     }
 }
