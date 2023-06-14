@@ -50,6 +50,8 @@ Route::controller(PaketController::class)->prefix('paket')->group(function(){
 
     Route::get('/{paket}/kirimsopir', 'viewPaketSopir')->name('paket.sopir');
     Route::post('/{paket}/kirimsopir', 'storePaketSopir')->name('paket.simpansopir');
+
+    Route::get('/paket/laporan', 'viewLaporan');
 });
 
 Route::prefix('users')->group(function () {
