@@ -38,8 +38,6 @@
                                 <td>{{ $data->jenis_paket }}</td>
                                 <td>
                                     <form action="{{ route('paket.destroy', $data->id) }}" method="post">
-                                        <a class="btn btn-sm btn-outline-success" id="btnedit" href="/paket/{{ $data->id }}/kirimsopir">Kirim ke sopir</a>
-                                        <a class="btn btn-sm btn-primary" id="btnedit" href="{{ route('paket.edit', $data->id) }}">Edit</a>
                                         @method('delete')
                                         @csrf
                                         <button class="btn btn-sm btn-danger">Delete</button>
