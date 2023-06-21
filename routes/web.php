@@ -57,8 +57,8 @@ Route::get('/dashboard', function () {
     });
 // });
 
-Route::get('/tracking', function () {
-    return view('admin.tracking.create');
+Route::get('/supir/tracking', function () {
+    return view('supir.tracking');
 });
 Route::resource('kendaraan', KendaraanController::class);
 
