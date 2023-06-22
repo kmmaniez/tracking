@@ -26,19 +26,19 @@
 
             @if (Auth::user()->roles[0]->id === 1)
                 <li class="nav-item {{ request()->is('kendaraan*') ? 'active' : '' }}">
-                    <a class="nav-link" href="/kendaraan">
+                    <a class="nav-link" href="{{ route('kendaraan.index') }}">
                         <i class="fas fa-fw fa-truck"></i>
                         <span>Kendaraan</span></a>
                 </li>
 
                 <li class="nav-item {{ request()->is('paket*') ? 'active' : '' }}">
-                    <a class="nav-link" href="/paket">
+                    <a class="nav-link" href="{{ route('paket.index') }}">
                         <i class="fas fa-fw fa-gift"></i>
                         <span>Paket</span></a>
                 </li>
 
                 <li class="nav-item {{ request()->is('users*sopir') ? 'active' : '' }}">
-                    <a class="nav-link" href="/users/sopir">
+                    <a class="nav-link" href="{{ route('sopir.index') }}">
                         <i class="fas fa-fw fa-user"></i>
                         <span>Sopir</span></a>
                 </li>
@@ -56,7 +56,7 @@
                         <span>Pengiriman</span></a>
                 </li>
                 <!-- Nav Item - Utilities Collapse Menu -->
-                <li class="nav-item {{ request()->is('blog*post') || request()->is('blog*category') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('laporan*') || request()->is('laporan*') ? 'active' : '' }}">
                     <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                         aria-expanded="true" aria-controls="collapseUtilities">
                         <i class="fas fa-fw fa-book"></i>
@@ -78,14 +78,11 @@
                 </li>
             @else
                 <li class="nav-item {{ request()->is('tracking') ? 'active' : '' }}">
-                    <a class="nav-link" href="supir/tracking">
+                    <a class="nav-link" href="/supir/tracking">
                         <i class="fas fa-fw fa-map"></i>
                         <span>Checkpoint</span></a>
                 </li>
             @endif
-
-
-
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
