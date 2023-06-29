@@ -12,6 +12,8 @@
                 <h6 class="m-0 font-weight-bold text-primary">List {{ $title_page ?? 'Title' }}</h6>
             </div>
             <div class="card-body">
+                <a href="{{ route('pengiriman.create') }}" class="btn btn-md btn-primary mb-4" id="create-product"><i class="fas fa-fw fa-user-plus"></i> Add {{ $title_page ?? 'Title' }}</a>
+
                 <div class="table-responsive">
                     <table class="table table-bordered" id="productDataTable" width="100%" cellspacing="0">
                         <thead>
