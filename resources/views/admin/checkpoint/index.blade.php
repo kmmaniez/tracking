@@ -49,7 +49,6 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Tujuan akhir</th>
                                 <th>Checkpoint 1</th>
                                 <th>Checkpoint 2</th>
                                 <th>Checkpoint 3</th>
@@ -58,7 +57,6 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Jakarta</td>
                                 <td>Surabaya  <br> SOPIR checkpoint Tanggal 20-02-2023</td>
                                 <td>Semarang</td>
                                 <td>Jakarta</td>
