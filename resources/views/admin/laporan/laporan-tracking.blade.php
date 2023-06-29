@@ -9,10 +9,10 @@
         <!-- Card -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">List {{ $title_page ?? 'Title' }}</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Data {{ $title_page ?? 'Title' }}</h6>
             </div>
             <div class="card-body">
-                <a href="http://" class="btn btn-primary mb-3">Cetak Semua {{ $title_page ?? '' }}</a>
+                {{-- <a href="http://" class="btn btn-primary mb-3">Cetak Semua {{ $title_page ?? '' }}</a> --}}
                 <div class="table-responsive">
                     <table class="table table-bordered" id="productDataTable" width="100%" cellspacing="0">
                         <thead>
