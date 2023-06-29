@@ -51,7 +51,7 @@
             </div>
             <!-- End of Main Content -->
 
-            <x-admin.footer></x-admin.footer>
+            {{-- <x-admin.footer></x-admin.footer> --}}
 
         </div>
         <!-- End of Content Wrapper -->
