@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Paket;
 use App\Models\Sopir;
 use Illuminate\Http\Request;
+use PDF;
 
 class LaporanController extends Controller
 {
@@ -29,9 +30,16 @@ class LaporanController extends Controller
         ]);
     }
 
-    public function printSopir()
+    public function printSopir($id)
     {
-        # code...
+        $sopir = Sopir::where('id',$id)->get();
+        $nama = $sopir[0]->nama;
+        $pdf    = PDF::loadView('admin.laporan.cetak.cetak-sopir',[
+            'sopir'  => $sopir ,
+        ]);
+        return $pdf->download("datadiri-".$nama.".pdf");
+        // return view('admin.laporan.cetak.cetak-sopir', compact('sopir'));
+
     }
 
     public function printPaket()

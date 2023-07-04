@@ -2,7 +2,6 @@
 
 @section('konten')
     <div class="container">
-<h1>supri</h1>
         <div class="row">
             <div class="col-12 mb-4">
                 <div class="accordion" id="accordionExample">
@@ -18,19 +17,23 @@
 
                         <div id="checkpoint1" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
-                                <form action="" method="post" id="cp1">
+                                <form action="{{ route('checkpoint.store1') }}" method="post" id="cp1">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="nomor_plat">Tanggal</label>
-                                        <input type="text" class="form-control" name="nomor_plat" id="nomor_plat">
+                                        <label for="tanggal_cp_1">Tanggal</label>
+                                        <input type="date" class="form-control" name="tanggal_cp_1" id="tanggal_cp_1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="nomor_plat">Kondisi barang</label>
-                                        <input type="text" class="form-control" name="nomor_plat" id="nomor_plat">
+                                        <label for="kondisi_cp_1">Kondisi barang</label>
+                                        <input type="text" class="form-control" name="kondisi_cp_1" id="kondisi_cp_1">
                                     </div>
                                     <div class="form-group">
-                                        <label for="nomor_plat">Status</label>
-                                        <input type="text" class="form-control" name="nomor_plat" id="nomor_plat">
+                                        <label for="status_cp_1">Status</label>
+                                        <input type="text" class="form-control" name="status_cp_1" id="status_cp_1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kota_cp_1">Kota</label>
+                                        <input type="text" class="form-control" name="kota_cp_1" id="kota_cp_1">
                                     </div>
 
                                     <button class="btn btn-primary" id="btn-cp1">Simpan</button>
@@ -40,6 +43,7 @@
                     </div>
                 </div>
             </div>
+            {{-- CP 2 --}}
             <div class="col-12 mb-4">
                 
                 <div class="accordion" id="accordionExample">
@@ -55,19 +59,23 @@
 
                         <div id="checkpoint2" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
-                                <form action="" method="post" id="cp1">
+                                <form action="{{ route('checkpoint.store2') }}" method="post" id="cp1">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="nomor_plat">Tanggal</label>
-                                        <input type="text" class="form-control" name="nomor_plat" id="nomor_plat">
+                                        <label for="tanggal_cp_2">Tanggal</label>
+                                        <input type="date" class="form-control" name="tanggal_cp_2" id="tanggal_cp_2">
                                     </div>
                                     <div class="form-group">
-                                        <label for="nomor_plat">Kondisi barang</label>
-                                        <input type="text" class="form-control" name="nomor_plat" id="nomor_plat">
+                                        <label for="kondisi_cp_2">Kondisi barang</label>
+                                        <input type="text" class="form-control" name="kondisi_cp_2" id="kondisi_cp_2">
                                     </div>
                                     <div class="form-group">
-                                        <label for="nomor_plat">Status</label>
-                                        <input type="text" class="form-control" name="nomor_plat" id="nomor_plat">
+                                        <label for="status_cp_2">Status</label>
+                                        <input type="text" class="form-control" name="status_cp_2" id="status_cp_2">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kota_cp_2">Kota</label>
+                                        <input type="text" class="form-control" name="kota_cp_2" id="kota_cp_2">
                                     </div>
 
                                     <button class="btn btn-primary" id="btn-cp1">Simpan</button>
@@ -77,6 +85,7 @@
                     </div>
                 </div>
             </div>
+            {{-- CP 3 --}}
             <div class="col-12">
                 
                 <div class="accordion" id="accordionExample">
@@ -92,19 +101,23 @@
 
                         <div id="checkpoint3" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
-                                <form action="" method="post" id="cp1">
+                                <form action="{{ route('checkpoint.store3') }}" method="post" id="cp1">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="nomor_plat">Tanggal</label>
-                                        <input type="text" class="form-control" name="nomor_plat" id="nomor_plat">
+                                        <label for="tanggal_cp_3">Tanggal</label>
+                                        <input type="date" class="form-control" name="tanggal_cp_3" id="tanggal_cp_3">
                                     </div>
                                     <div class="form-group">
-                                        <label for="nomor_plat">Kondisi barang</label>
-                                        <input type="text" class="form-control" name="nomor_plat" id="nomor_plat">
+                                        <label for="kondisi_cp_3">Kondisi barang</label>
+                                        <input type="text" class="form-control" name="kondisi_cp_3" id="kondisi_cp_3">
                                     </div>
                                     <div class="form-group">
-                                        <label for="nomor_plat">Status</label>
-                                        <input type="text" class="form-control" name="nomor_plat" id="nomor_plat">
+                                        <label for="status_cp_3">Status</label>
+                                        <input type="text" class="form-control" name="status_cp_3" id="status_cp_3">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kota_cp_3">Kota</label>
+                                        <input type="text" class="form-control" name="kota_cp_3" id="kota_cp_3">
                                     </div>
 
                                     <button class="btn btn-primary" id="btn-cp1">Simpan</button>
@@ -120,20 +133,3 @@
 
     </div>
 @endsection
-@push('script')
-    <script>
-        // const Cp1 = document.getElementById('cp1');
-        const Cp2 = document.querySelectorAll('#cp2 > .form-group > input');
-        const Cp3 = document.querySelectorAll('#cp3 > .form-group > input');
-        const btnCp2 = document.getElementById('btn-cp2');
-        const btnCp3 = document.getElementById('btn-cp3');
-        // Cp2.forEach(element => {
-        //     element.disabled = true
-        //     btnCp2.disabled = true;
-        // });
-        // Cp3.forEach(element => {
-        //     element.disabled = true
-        //     btnCp3.disabled = true;
-        // });
-    </script>
-@endpush

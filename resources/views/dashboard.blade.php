@@ -5,7 +5,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard {{ Auth::user()->name }}</h1>
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
         </div>
         <!-- Content Row -->
         <div class="row">
@@ -59,18 +59,18 @@
                 </div>
             @else
                 <!-- Categories -->
-                <div class="col-xl-4 col-md-6 mb-4">
+                {{-- <div class="col-xl-4 col-md-6 mb-4">
                     <div class="card border-bottom-primary shadow py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-lg font-weight-bold text-primary text-uppercase mb-1">sopir
-                                        Pilih SOpir</div>
+                                    <div class="text-lg font-weight-bold text-primary text-uppercase mb-1">Pilih Sopir</div>
                                     <div>
-                                        <select class="form-control" name="" id="">
+                                        <select class="form-control" name="pilihsopir" id="pilihsopir">
+                                            @foreach ($sopir as $data)
                                             <option value="" style="display: none;">---- Pilih Sopir ----</option>
-                                            <option value="">Farid</option>
-                                            <option value="">Eak</option>
+                                            <option value="{{ $data->id }}">{{ $data->nama }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -101,7 +101,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 {{-- muncul paket sesuai paket yg dipilih --}}
             @endif
 
@@ -116,6 +116,7 @@
     @endsection
     {{-- ini di inputan supir cuma tgl,jam,kondisi,status, --}}
     @push('script')
+        @if (Auth::user()->roles[0]->id === 1)
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
         <script>
@@ -140,4 +141,5 @@
                 }
             });
         </script>
+        @endif
     @endpush

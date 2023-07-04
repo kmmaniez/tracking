@@ -1,15 +1,18 @@
 <?php
 
+use App\Http\Controllers\CheckpointController;
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\PengirimanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SopirController;
+use App\Models\Checkpoint;
 use App\Models\Kendaraan;
 use App\Models\Paket;
 use App\Models\Sopir;
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Contracts\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,11 +38,15 @@ Route::middleware(['auth'])->group(function () {
                 'totalkendaraan' => Kendaraan::all()->count(),
             ]);
         }
-        return view('dashboard');
+        return view('dashboard', [
+            'sopir' => Sopir::all()
+        ]);
     });
 
     Route::prefix('laporan')->controller(LaporanController::class)->group(function () {
         Route::get('/sopir', 'laporanSopir')->name('laporan.sopir');
+        Route::get('/sopir/{id}/cetak', 'printSopir');
+
         Route::get('/paket', 'laporanPaket')->name('laporan.paket');
         Route::get('/tracking', 'laporanTracking')->name('laporan.tracking');
     });
@@ -50,13 +57,17 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('kendaraan', KendaraanController::class);
 
-    Route::get('/checkpoint', function () {
-        return view('admin.checkpoint.index');
-    });
+    Route::get('/checkpoint',[CheckpointController::class, 'index']);
+    Route::post('/simpancp1', [CheckpointController::class, 'store_cp_1'])->name('checkpoint.store1');
+    Route::post('/simpancp2', [CheckpointController::class, 'store_cp_2'])->name('checkpoint.store2');
+    Route::post('/simpancp3', [CheckpointController::class, 'store_cp_3'])->name('checkpoint.store3');
 
     Route::controller(PengirimanController::class)->group(function () {
         Route::get('/pengiriman', 'index')->name('pengiriman.index');
         Route::get('/pengiriman/create', 'create')->name('pengiriman.create');
+        Route::post('/pengiriman/create', 'store')->name('pengiriman.store');
+
+        Route::delete('/pengiriman/{pengiriman}/','destroy')->name('pengiriman.destroy');
     });
 
     Route::controller(PaketController::class)->prefix('paket')->group(function () {

@@ -32,7 +32,7 @@
                                 <td>{{ $data->telepon }}</td>
                                 <td>{{ $data->merkhp }}</td>
                                 <td>
-                                    <a class="btn btn-sm btn-primary" id="btnedit" href="{{ route('sopir.edit', $data->id) }}"><i class="fas fa-fw fa-print"></i> Cetak data</a>
+                                    <a class="btn btn-sm btn-primary" id="btnedit" href="/laporan/sopir/{{ $data->id }}/cetak"><i class="fas fa-fw fa-print"></i> Cetak data</a>
                                 </td>
                             </tr>
                             @empty

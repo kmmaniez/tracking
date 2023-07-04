@@ -19,18 +19,18 @@
                         <thead>
                             <tr>
                                 <th>Nomor</th>
-                                <th>Id Pengirim / nama cust</th>
+                                <th>Nama Customer</th>
                                 <th>Plat Kendaraan</th>
-                                <th>supir Kendaraan</th>
-                                <th>paket</th>
-                                <th>id checkpoint</th>
-                                <th>tujuan</th>
-                                <th>qty</th>
+                                <th>Supir Kendaraan</th>
+                                <th>Resi Paket</th>
+                                <th>Checkpoint ID</th>
+                                <th>Tujuan</th>
+                                <th>Quantity</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            {{-- <tr>
                                 <td>1</td>
                                 <td>26</td>
                                 <td>L 150 ML</td>
@@ -48,7 +48,28 @@
                                         <button class="btn btn-sm btn-danger">Delete</button>
                                     </form>
                                 </td>
+                            </tr> --}}
+                            @foreach ($listpengiriman as $data)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $data->nama }}</td>
+                                <td>{{ $data->plat }}</td>
+                                <td>{{ $data->sopirs->nama }}</td>
+                                <td>{{ $data->idpaket }}</td>
+                                <td>{{ $data->id_cp }}</td>
+                                <td>{{ $data->tujuan }}</td>
+                                <td>{{ $data->quantity }}</td>
+                                <td>
+                                    <form action="{{ route('pengiriman.destroy', $data->id) }}" method="post">
+                                        <a class="btn btn-sm btn-outline-success" id="btnedit" href="/">Kirim ke sopir</a>
+                                        <a class="btn btn-sm btn-primary" id="btnedit" href="/">Edit</a>
+                                        @method('delete')
+                                        @csrf
+                                        <button class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

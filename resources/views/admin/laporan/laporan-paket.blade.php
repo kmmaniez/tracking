@@ -35,7 +35,7 @@
                                 <td>{{ $data->tujuan }}</td>
                                 <td>{{ $data->jenis_paket }}</td>
                                 <td>
-                                    <a class="btn btn-sm btn-primary" id="btnedit" href="{{ route('paket.edit', $data->id) }}"><i class="fas fa-fw fa-print"></i> Cetak data</a>
+                                    <a class="btn btn-sm btn-primary" id="btnedit" href=""><i class="fas fa-fw fa-print"></i> Cetak data</a>
                                 </td>
                             </tr>
                             @empty
