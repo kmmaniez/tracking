@@ -146,10 +146,10 @@ class LaporanController extends Controller
                 $result[$i] += $dataCpthree[$i];
             }
         }
-        
+        // dump($result[$id]["tanggal_cp_1"]);
         $pdf    = PDF::loadView('admin.laporan.cetak.cetak-tracking',[
             'result'  => $result[$id],
         ]);
-        return $pdf->download("Detail_tracking_".$result[$id]['kota_cp_1']."-".$result[$id]['kota_cp_2']."-".$result[$id]['kota_cp_3'].".pdf");
+        return $pdf->download("Detail_tracking_".$result[$id]['kota_cp_1'].".pdf");
     }
 }

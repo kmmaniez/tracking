@@ -30,32 +30,30 @@
             </tr>
         </thead>
         <tbody class="table-group-divider">
-            @foreach ($result as $item)
             <tr>
                 <td>
-                    SOPIR <strong>checkpoint Tanggal {{ $item['tanggal_cp_1'] }}</strong><br>
-                    Kondisi : {{ $item['kondisi_cp_1'] }}<br>
-                    Status : <i>{{ $item['status_cp_1'] }}</i><br>
-                    <strong>Kota : {{ $item['kota_cp_1'] }}</strong><br>
+                    SOPIR <strong>checkpoint Tanggal {{ $result['tanggal_cp_1'] }}</strong><br>
+                    Kondisi : {{ $result['kondisi_cp_1'] }}<br>
+                    Status : <i>{{ $result['status_cp_1'] }}</i><br>
+                    <strong>Kota : {{ $result['kota_cp_1'] }}</strong><br>
                 </td>
                 <td>
-                    @if (!empty($item['tanggal_cp_2']))
-                        SOPIR <strong>checkpoint Tanggal {{ $item['tanggal_cp_2'] ?? '' }}</strong><br>
-                        Kondisi : {{ $item['kondisi_cp_2'] ?? ''}}<br>
-                        Status : <i>{{ $item['status_cp_2'] ?? ''}}</i><br>
-                        <strong>Kota : {{ $item['kota_cp_2'] ?? ''}}</strong><br>
+                    @if (!empty($result['tanggal_cp_2']))
+                        SOPIR <strong>checkpoint Tanggal {{ $result['tanggal_cp_2'] ?? '' }}</strong><br>
+                        Kondisi : {{ $result['kondisi_cp_2'] ?? ''}}<br>
+                        Status : <i>{{ $result['status_cp_2'] ?? ''}}</i><br>
+                        <strong>Kota : {{ $result['kota_cp_2'] ?? ''}}</strong><br>
                     @endif
                 </td>
                 <td>
-                    @if (!empty($item['tanggal_cp_3']))
-                        SOPIR <strong>checkpoint Tanggal {{ $item['tanggal_cp_3'] ?? '' }}</strong><br>
-                        Kondisi : {{ $item['kondisi_cp_3'] ?? '' }}<br>
-                        Status : <i>{{ $item['status_cp_3'] ?? '' }}</i><br>
-                        <strong>Kota : {{ $item['kota_cp_3'] ?? '' }}</strong><br>
+                    @if (!empty($result['tanggal_cp_3']))
+                        SOPIR <strong>checkpoint Tanggal {{ $result['tanggal_cp_3'] ?? '' }}</strong><br>
+                        Kondisi : {{ $result['kondisi_cp_3'] ?? '' }}<br>
+                        Status : <i>{{ $result['status_cp_3'] ?? '' }}</i><br>
+                        <strong>Kota : {{ $result['kota_cp_3'] ?? '' }}</strong><br>
                     @endif
                 </td>
             </tr>
-        @endforeach
 
         </tbody>
     </table>
