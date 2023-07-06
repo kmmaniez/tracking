@@ -17,7 +17,7 @@
 
                         <div id="checkpoint1" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
-                                <form action="{{ route('checkpoint.store1') }}" method="post" id="cp1">
+                                <form action="{{ route('checkpoint.store1') }}" method="post" id="cp1" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <label for="tanggal_cp_1">Tanggal</label>
@@ -59,7 +59,7 @@
 
                         <div id="checkpoint2" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
-                                <form action="{{ route('checkpoint.store2') }}" method="post" id="cp1">
+                                <form action="{{ route('checkpoint.store2') }}" method="post" id="cp2" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <label for="tanggal_cp_2">Tanggal</label>
@@ -101,7 +101,7 @@
 
                         <div id="checkpoint3" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
-                                <form action="{{ route('checkpoint.store3') }}" method="post" id="cp1">
+                                <form action="{{ route('checkpoint.store3') }}" method="post" id="cp3" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <label for="tanggal_cp_3">Tanggal</label>
