@@ -39,7 +39,9 @@ Route::middleware(['auth'])->group(function () {
             ]);
         }
         return view('dashboard', [
-            'sopir' => Sopir::all()
+            'title_page' => 'Checkpoint',
+            'sopir' => Sopir::all(),
+            'checkpoints' => Checkpoint::all()
         ]);
     });
 
@@ -48,7 +50,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/sopir/{id}/cetak', 'printSopir');
 
         Route::get('/paket', 'laporanPaket')->name('laporan.paket');
+        Route::get('/paket/{id}/cetak', 'printPaket');
+        
         Route::get('/tracking', 'laporanTracking')->name('laporan.tracking');
+        Route::get('/tracking/{id}/cetak', 'printTracking');
     });
 
     Route::get('/supir/tracking', function () {
