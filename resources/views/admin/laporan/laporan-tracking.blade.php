@@ -50,7 +50,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a class="btn btn-sm btn-primary" id="btnedit" href="/laporan/tracking//cetak"><i class="fas fa-fw fa-print"></i> Cetak data</a>
+                                        <a class="btn btn-sm btn-primary" id="btnedit" href="/laporan/tracking/{{ $loop->iteration - 1 }}/cetak"><i class="fas fa-fw fa-print"></i> Cetak data</a>
                                     </td>
                                 </tr>
                             @endforeach
