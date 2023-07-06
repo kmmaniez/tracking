@@ -12,38 +12,42 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="productDataTable" width="100%" cellspacing="0">
+                    <table class="table" id="productDataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>No</th>
+                                <th>Nomor</th>
                                 <th>Checkpoint 1</th>
                                 <th>Checkpoint 2</th>
                                 <th>Checkpoint 3</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- <tr>
-                                <td>1</td>
-                                <td>Surabaya  <br> SOPIR checkpoint Tanggal 20-02-2023</td>
-                                <td>Semarang</td>
-                                <td>Jakarta</td>
-                            </tr> --}}
-                            @foreach ($checkpointone as $cp1)
-                            <tr>
-                                <td>1</td>
-                                <td>SOPIR checkpoint Tanggal {{ $cp1->tanggal_cp_1 }}</td>
-                                <td>
-                                @foreach ($checkpointtwo as $cp2)
-                                    SOPIR checkpoint Tanggal {{ $cp2->tanggal_cp_2 }}
-                                @endforeach
-                                </td>
-                                <td>
-                                @foreach ($checkpointthree as $cp3)
-                                    SOPIR checkpoint Tanggal {{ $cp3->tanggal_cp_3 }}
-                                @endforeach
-                                </td>
-                            </tr>
-                            
+                            @foreach ($result as $item)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>
+                                        SOPIR <strong>checkpoint Tanggal {{ $item['tanggal_cp_1'] }}</strong><br>
+                                        Kondisi : {{ $item['kondisi_cp_1'] }}<br>
+                                        Status : <i>{{ $item['status_cp_1'] }}</i><br>
+                                        <strong>Kota : {{ $item['kota_cp_1'] }}</strong><br>
+                                    </td>
+                                    <td>
+                                        @if (!empty($item['tanggal_cp_2']))
+                                            SOPIR <strong>checkpoint Tanggal {{ $item['tanggal_cp_2'] ?? '' }}</strong><br>
+                                            Kondisi : {{ $item['kondisi_cp_2'] ?? ''}}<br>
+                                            Status : <i>{{ $item['status_cp_2'] ?? ''}}</i><br>
+                                            <strong>Kota : {{ $item['kota_cp_2'] ?? ''}}</strong><br>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if (!empty($item['tanggal_cp_3']))
+                                            SOPIR <strong>checkpoint Tanggal {{ $item['tanggal_cp_3'] ?? '' }}</strong><br>
+                                            Kondisi : {{ $item['kondisi_cp_3'] ?? '' }}<br>
+                                            Status : <i>{{ $item['status_cp_3'] ?? '' }}</i><br>
+                                            <strong>Kota : {{ $item['kota_cp_3'] ?? '' }}</strong><br>
+                                        @endif
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -53,10 +57,3 @@
 
     </div>
 @endsection
-
-@push('script')
-<script>
-    const btnEdit = document.querySelector('#btnedit');
-
-</script>
-@endpush
