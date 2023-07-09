@@ -30,25 +30,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- <tr>
-                                <td>1</td>
-                                <td>26</td>
-                                <td>L 150 ML</td>
-                                <td>Sodiq</td>
-                                <td>Skincare</td>
-                                <td>22</td>
-                                <td>Jakarta</td>
-                                <td>20</td>
-                                <td>
-                                    <form action="" method="post">
-                                        <a class="btn btn-sm btn-outline-success" id="btnedit" href="/">Kirim ke sopir</a>
-                                        <a class="btn btn-sm btn-primary" id="btnedit" href="/">Edit</a>
-                                        @method('delete')
-                                        @csrf
-                                        <button class="btn btn-sm btn-danger">Delete</button>
-                                    </form>
-                                </td>
-                            </tr> --}}
                             @foreach ($listpengiriman as $data)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
