@@ -136,6 +136,46 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-12">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">List {{ $title_page ?? 'Title' }}</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="productDataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Nomor</th>
+                                            <th>Nama Customer</th>
+                                            <th>Plat Kendaraan</th>
+                                            <th>Supir Kendaraan</th>
+                                            <th>Resi Paket</th>
+                                            <th>Checkpoint ID</th>
+                                            <th>Tujuan</th>
+                                            <th>Quantity</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($listpengiriman as $data)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $data->nama }}</td>
+                                            <td>{{ $data->plat }}</td>
+                                            <td>{{ $data->sopirs->nama }}</td>
+                                            <td>{{ $data->idpaket }}</td>
+                                            <td>{{ $data->id_cp }}</td>
+                                            <td>{{ $data->tujuan }}</td>
+                                            <td>{{ $data->quantity }}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             @endif
 
         </div>
