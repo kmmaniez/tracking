@@ -10,6 +10,7 @@ use App\Http\Controllers\SopirController;
 use App\Models\Checkpoint;
 use App\Models\Kendaraan;
 use App\Models\Paket;
+use App\Models\Pengiriman;
 use App\Models\Sopir;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Contracts\Role;
@@ -41,7 +42,8 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard', [
             'title_page' => 'Checkpoint',
             'sopir' => Sopir::all(),
-            'checkpoints' => Checkpoint::all()
+            'checkpoints' => Checkpoint::all(),
+            'listpengiriman' => Pengiriman::all()
         ]);
     });
 
